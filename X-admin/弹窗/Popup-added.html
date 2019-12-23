@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加信息</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+		<link rel="stylesheet" href="../css/xadmin.css" />
+		<link rel="stylesheet" href="../css/laytable-cell.css" />
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1533955_pcfa7md6sv.css" />
+		<script src="../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../js/xadmin.js"></script>
+		<script src="../js/jquery.min.js"></script>
+	</head>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul {
+			width: 100%;
+			height: 46px;
+			list-style: none;
+			border-bottom: 1px solid #9F9F9F;
+		}
+		
+		ul li {
+			width: 100px;
+			height: 45px;
+			line-height: 45px;
+			color: #0086B3;
+			text-align: center;
+			margin-left: 15px;
+			float: left;
+			cursor: pointer;
+		}
+		
+		#nav .active {
+			border: 1px solid #9F9F9F;
+			/*background: #E2E2E2;*/
+			color: black;
+		}
+		
+		#con {
+			width: 100%;
+			/*background: darkcyan;*/
+			margin: 0 auto;
+			position: relative;
+		}
+		
+		#con span {
+			/*display: inline-block;*/
+			/*width: 100%;*/
+			/*margin-top: 5px;*/
+			display: none;
+			/*position: absolute;*/
+		}
+		
+		.title {
+			width: 98%;
+			height: 40px;
+			background: #f1f9fd;
+			line-height: 40px;
+			margin: 0 auto;
+			border-left: 5px solid #009E94;
+		}
+		
+		.content {
+			display: flex;
+			width: 96%;
+			background: white;
+			margin: 0 auto;
+			position: relative;
+		}
+		
+		.content div {
+			margin-bottom: 3px !important;
+		}
+		
+		.piclist {
+			width: 370px;
+			height: 212px;
+			background: seagreen;
+			text-align: center;
+			line-height: 212px;
+			position: absolute;
+			right: 0;
+		}
+		
+		.box02 {
+			width: 900px;
+			/*background: sandybrown;*/
+			/*display: flex;*/
+			/*justify-content: space-between;*/
+		}
+		
+		#layui-input-block {
+			height: 36px;
+			width: 395px;
+			line-height: 1.3;
+			border-width: 1px;
+			border-style: solid;
+			background-color: #fff;
+			border-radius: 2px;
+			border-color: #e6e6e6;
+			padding-left: 10px;
+		}
+		
+		.layui-form-radio {
+			line-height: 28px;
+			margin: 6px 6px 0 0;
+			padding-right: 10px;
+			cursor: pointer;
+			font-size: 0;
+		}
+		
+		.layui-collapse {
+			width: 98%;
+			height: 40px;
+			background: #f1f9fd;
+			line-height: 40px;
+			margin: 0 auto;
+		}
+		
+		.iconfont {
+			font-family: "iconfont" !important;
+			font-size: 25px !important;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+		}
+		
+		/*.layui-table-cell span {
+			display: block !important;
+		}
+		
+		.layui-table-page span {
+			display: block !important;
+		}
+		
+		.layui-table td,
+		.layui-table th {
+			width: 48px;
+		}
+		
+		.laytable-cell-1-0-0 {
+			width: 43px;
+			padding-left: 22px;
+			margin-left: 5px;
+		}
+		
+		.laytable-cell-1-0-1 {
+			width: 48px;
+			background: salmon;
+		}
+		
+		.layui-table-view .layui-table td,
+		.layui-table-view .layui-table th {
+			text-align: center;
+			padding: 3px 0;
+		}
+		
+		.layui-table-view .layui-table th {
+			height: 50px;
+		}
+		
+		.laytable-cell-1-0-3 {
+			width: 142px!important;
+		}
+		
+		.laytable-cell-1-0-4 {
+			width: 60px!important;
+			font-size: 12px;
+		}
+		
+		.laytable-cell-1-0-5 {
+			width: 54px!important;
+			font-size: 12px;
+		}*/
+	</style>
+
+	<body>
+		<ul id="nav">
+			<li class="active">房产信息</li>
+			<li>二级卡片</li>
+		</ul>
+		<div id="con">
+			<span style="display: block;">
+				<div class="title">&nbsp;房产卡片信息</div>
+
+				<div class="content" >
+					<form class="layui-form" action="" style="margin-top: 10px;">
+						<div class="box01">
+						<label class="layui-form-label">资产编号</label>
+						<div class="layui-input-block" style="margin-left: 0px;">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入资产编号" class="layui-input" style="width: 150px; float: left; ">
+						<label class="layui-form-label" style="width: 85px;">验证必填项</label>	
+						<input type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入" autocomplete="off" class="layui-input" style="width: 150px;">	
+						</div>
+						
+						
+						<div class="layui-form-item" style="margin-top: 3px;">
+						<div class="layui-inline">
+							<label class="layui-form-label">房产地址</label>
+							<div class="layui-input-inline">
+							<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width: 415px;">
+							</div>
+						</div>
+						</div>
+						
+						<div class="layui-inline" style="margin-bottom: 15px;">
+							<label class="layui-form-label">房产权属人</label>
+						    <div class="layui-input-inline">
+						    <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input" style="width: 415px;">
+						    </div>	
+						</div>
+						
+						<div class="layui-form-item">
+							<div class="layui-inline">
+							<label class="layui-form-label">房产单位管理</label>
+							<div class="layui-input-inline">
+							 <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width: 415px;">
+							</div>
+							</div>
+						</div>
+						
+						<!--<div class="layui-form-item">
+							<div class="layui-inline">
+							<label class="layui-form-label">房产单位管理</label>
+							<div class="layui-input-inline">
+							 <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							</div>
+							</div>
+						</div>-->
+						
+						<div class="layui-form-item" style="width: 600px;">
+                            <div class="layui-inline">
+                            <label class="layui-form-label  layui-form-label1">建筑面积（㎡）</label>
+                            <div class="layui-input-inline">
+                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width: 150px;">
+                            </div>
+                            </div>
+                            <div class="layui-inline" style="float: right;">
+                            <label class="layui-form-label">可出租面积（㎡）</label>
+                            <div class="layui-input-inline">
+                            <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input" style="width: 112px;">
+                            </div>
+                            </div>
+                        </div>                       
+                        </div>
+                            
+                        <div class="box02">   
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                            <label class="layui-form-label  layui-form-label1">使用权面积（㎡）</label>
+                            <div class="layui-input-inline">
+                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input" style="width: 150px;">
+                            </div>
+                            </div>
+                            <div class="layui-inline">
+                            <label class="layui-form-label">占地面积（㎡）</label>
+                            <div class="layui-input-inline">
+                            <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input" style="width: 112px;">
+                            </div>
+                            </div>
+                            <div class="layui-inline" style="float: right;">
+                            <label class="layui-form-label">空地面积（㎡）</label>
+                            <div class="layui-input-inline">
+                            <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input" style="width: 112px;">
+                            </div>
+                            </div> 
+                        </div>
+                        
+                        
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                        <label class="layui-form-label">房屋结构</label>
+                        <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">请选择</option>
+                        <option value="1">钢筋混泥土</option>
+                        <option value="2">木结构</option>
+                        <option value="3">砖混结构</option>
+                        <option value="4">钢结构</option>
+                        <option value="5">其他结构</option>       
+                        </select>
+                        </div> 
+                        
+                        <div style="margin-left: 69px; width: 201px; ">
+                        <label style="margin-right: 22px;">规划用途</label>
+                        <input type="text" style="height: 36px; width: 100px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                        </div>
+                        
+                        <label class="layui-form-label">房产类型</label>
+                        <div class="layui-input-inline">
+                        <select >
+                        <option value="" style="width: 150px;">请选择</option>
+                        <option value="1">办公用房</option>
+                        <option value="2">住房</option>
+                        <option value="3">商铺</option>
+                        <option value="4">厂房</option>
+                        <option value="5">仓库</option>
+                        <option value="6">其他</option>
+                        </select>
+                        </div>                                    
+                    </div>                                     
+                    
+                    
+                    
+                    
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                        <label class="layui-form-label">房屋性质</label>
+                        <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">请选择</option>
+                        <option value="1">国有房产</option>
+                        <option value="2">集体所有房产</option>
+                        <option value="3">私有房产</option>
+                        <option value="4">联营企业房产</option>
+                        <option value="5">股份制企业房产</option>
+                        <option value="6">港澳台胞房产</option>
+                        <option value="7">涉外房产</option>
+                        <option value="8">其他房产</option>   
+                        </select>
+                        </div> 
+                        
+                        <div style="margin-left: 68px; width: 207px; ">
+                        <label style="margin-right: 23px;">房产定位</label>
+                        <input type="text" style="height: 36px; width: 100px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                        </div>
+                        
+                        <div style="margin-left: 69px; width: 222px;">
+                        <label style="margin-right: 12px;">录入时间</label>
+                        <input type="text" style="height: 36px; width: 138px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                        </div>   
+                        </div>
+                    
+                    
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                        <label class="layui-form-label">房屋性质</label>
+                        <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">请选择</option>
+                        <option value="1">国有房产</option>
+                        <option value="2">集体所有房产</option>
+                        <option value="3">私有房产</option>
+                        <option value="4">联营企业房产</option>
+                        <option value="5">股份制企业房产</option>
+                        <option value="6">港澳台胞房产</option>
+                        <option value="7">涉外房产</option>
+                        <option value="8">其他房产</option>   
+                        </select>
+                        </div> 
+                        
+                    <div style="margin-left: 41px; ">
+                        <label style="margin-right: 22px;">委托单位名称</label>
+                        <input type="text" style="height: 36px; width: 403px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                        </div>
+                    </div>
+                    
+
+ 
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                       <label class="layui-form-label">资产持有证件类型</label>
+                       <div class="layui-input-block" id="layui-input-block" style="margin-left: -2px;">
+                       <input type="radio" name="sex" value="男" title="不动产权证" checked="">
+                       <input type="radio" name="sex" value="女" title="房产证">
+                       <input type="radio" name="sex" value="女" title="土地证">
+                       <input type="radio" name="sex" value="女" title="无证">
+                       </div>
+                       
+                       
+                       <label class="layui-form-label" >境内外情况</label>
+                       <div class="layui-input-block" id="layui-input-block"style="margin-left: 0px; width: 153px;">
+                       <input type="radio" name="sex" value="男" title="境内" checked="">
+                       <input type="radio" name="sex" value="女" title="境外">
+                       </div>  
+                    </div>
+                    
+                    
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                       <label class="layui-form-label" style="line-height: 17px; padding: 4px 15px; word-wrap:break-word">是否存在查封抵押情况</label>
+                       <div class="layui-input-block" id="layui-input-block"style="margin-left: 0px; width: 138px;">
+                       <input type="radio" name="sex" value="男" title="是" checked="">
+                       <input type="radio" name="sex" value="女" title="否">
+                       </div>
+                       
+                       <label class="layui-form-label" style="width: 89px;">是否独栋业务</label>
+                       <div class="layui-input-block" id="layui-input-block"style="margin-left: 0px; width: 124px;">
+                       <input type="radio" name="sex" value="男" title="是" checked="">
+                       <input type="radio" name="sex" value="女" title="否">
+                       </div>
+                       
+                       <label class="layui-form-label" style=" word-wrap:break-word">是否连片物业</label>
+                       <div class="layui-input-block" id="layui-input-block"style="margin-left: 0px; width: 154px;">
+                       <input type="radio" name="sex" value="男" title="是" checked="">
+                       <input type="radio" name="sex" value="女" title="否">
+                       </div>       
+                    </div>
+                    
+                    
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                       <label class="layui-form-label">入账情况</label>
+                       <div class="layui-input-block" id="layui-input-block"style="margin-left: 0px; width: 180px;">
+                       <input type="radio" name="sex" value="男" title="已入帐" checked="">
+                       <input type="radio" name="sex" value="女" title="未入帐">
+                       </div>
+                       
+                       <div style="margin-left: 19px; width: 215px; ">
+                       <label style="margin-right: 0px;">入账价值（元）</label>
+                       <input type="text" style="height: 36px; width: 81px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                       </div>
+                       
+                       <div style="margin-left: 69px; width: 222px;">
+                       <label style="margin-right: 12px;">录入时间</label>
+                       <input type="text" style="height: 36px; width: 138px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                       </div>                  	
+                    </div>
+                    
+                    
+                    <div class="layui-inline" style="width: 900px; display: flex; margin-bottom: 15px;">
+                    	<label class="layui-form-label">区域分类</label>
+                        <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">请选择</option>
+                        <option value="1">城南区</option>
+                        <option value="2">总部区</option>
+                        <option value="3">城西区</option>
+                        <option value="4">会雅苑</option>
+                        <option value="5">其他</option>   
+                        </select>
+                        </div>
+                        
+                        <div style="margin-left: 104px; width: 207px; ">
+                        <label style="margin-right: 12px;">计税点</label>
+                        <input type="text" style="height: 36px; width: 81px; line-height: 1.3; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px; border-color: #e6e6e6; padding-left: 10px;"/>
+                        </div>
+                        	
+                    </div>                   
+                    </div>  
+                </form>	
+                        <div class="piclist">
+						   <img src="../lib/layui/css/modules/layer/default/loading-2.gif" />
+				        </div>
+                
+                </div>   
+                <div class="layui-collapse" lay-filter="test" >
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">资产使用情况</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		<table class="layui-table layui-form">
+                    			<thead>
+                                  <tr>                                   
+                                    <th>序号</th>
+                                    <th>使用情况</th>
+                                    <th>使用面积（m²）</th></tr>
+                                </thead>
+                                <tbody>
+                                	<tr>
+                                		<td>1</td>
+                                		<td>出租</td>
+                                		<td>100</td>
+                                	</tr>
+                                	<tr>
+                                		<td>2</td>
+                                		<td>待租</td>
+                                		<td>90</td>
+                                	</tr>
+                                </tbody>                 
+                    		</table>	
+                    	</div>	                 
+                    </div>
+                    </div> 
+                
+                
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">出租信息</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		1
+                    	</div>	                 
+                    </div>
+                    </div> 
+                
+
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">待租信息</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		2
+                    	</div>	                 
+                    </div>
+                    </div> 
+
+                
+
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">出借信息</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		3
+                    	</div>	                 
+                    </div>
+                    </div>
+                    
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">权证信息</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		4
+                    	</div>	                 
+                    </div>
+                    </div>
+                    
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">备注信息及附件上传</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		5
+                    	</div>	                 
+                    </div>
+                    </div>
+                    
+                    <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" style="border-left: 5px solid #009E94">操作记录</h2>
+                    <div class="layui-colla-content">
+                    	<div class="layui-card-body layui-table-body layui-table-main">
+                    		<table class="layui-table layui-form">
+                    			<thead>
+                    			<tr>
+                    				<th>序号</th>
+                    				<th>操作时间</th>
+                    				<th>操作内容</th>
+                    				<th>操作人</th>
+                    				<th>操作</th>
+                    			</tr>
+                    			<tbody>
+                    				<tr>
+                    				<td>1</td>
+                    				<td></td>
+                    				<td></td>
+                    				<td></td>
+                    				<td>
+                    					<a href=""><i class="iconfont icon-yanjing"></i></a>
+                    					
+                    				</td>
+                    				
+                    				</tr>
+                    			</tbody>
+                    			</thead>
+                    		</table>
+                    	</div>	                 
+                    </div>
+                    </div>
+
+             </div>       
+                            						
+								   
+			</span>
+
+			<span style="background: darkgoldenrod;">
+           <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                       
+                        <div class="layui-card-body ">
+                            <table class="layui-table" lay-data="{url:'../user.json',page:true,toolbar: '#toolbarDemo',id:'test'}" lay-filter="test">
+                                <thead>
+                                    <tr>
+                                        <th lay-data="{type:'checkbox',width:43}">ID</th>
+                                        <th lay-data="{field:'序号'}">序号</th>
+                                        <th lay-data="{field:'资产编号',edit: 'text'}">资产子编号</th>
+                                        <th lay-data="{field:'房产类型',edit: 'text'}">单元地址</th>
+                                        <!--<th lay-data="{field:'区域类型', width:80}">区域类型</th>-->
+                                        <!--<th lay-data="{field:'房产类型', edit: 'text', minWidth: 50}">房产类型</th>-->
+                                        <th lay-data="{field:'建筑面积(m²)',edit: 'text'}" style="font-size: 12em !important;">单元面积(m²)</th>
+                                        <!--<th lay-data="{field:'可出租面积(m²)',templet: function(d){ return d.dw_xinzhi.titel;}}">单元类型</th>-->
+                                        <th lay-data="{field:'占地面积(m²)'}">单元使用状态</th>
+                                        <!--<th lay-data="{field:'资产状态',edit: 'text', minWidth: 100}">资产状态</th>-->
+                                        <th lay-data="{field:'操作', toolbar:'#barDemo'}">操作</th>                                   
+                                    </tr>
+                                    
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</span>
+
+		</div>
+	</body>
+
+	<script type="text/html" id="barDemo">
+		<button class="layui-btn" onclick="xadmin.open('添加信息','./弹窗/Newly-added.html',1000,800)">查看</button>
+		<button class="layui-btn" onclick="xadmin.open('添加信息','./弹窗/Newly-added.html',1000,600)">修改文件</button>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+
+	<script type="text/html" id="toolbarDemo">
+		<button class="layui-btn" onclick="xadmin.open('添加信息','./弹窗/Newly-added.html',1000,700)">添加卡片</button>
+
+	</script>
+	<script type="text/html" id="switchTpl">
+		<!-- 这里的checked的状态只是演示 -->
+		<input type="checkbox" name="sex" value="{{d.id}}" lay-skin="switch" lay-text="女|男" lay-filter="sexDemo" {{ d.id==1 0003 ? 'checked': ''}}>
+	</script>
+
+	<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+	<script type="text/javascript">
+		$(function() {
+			$("li").click(function() {
+				//获取当前点击下标  index()
+				var index = $(this).index();
+				//当前li 加active          其他兄弟移除  active
+				$(this).addClass("active").siblings().removeClass("active");
+				//当前下标的div 显示  其他div 隐藏
+				$("#con span").eq(index).fadeIn().siblings().fadeOut();
+			})
+		})
+		layui.use(['form', 'element', 'layer', 'laydate'], function() {
+			var form = layui.form;
+			var laydate = layui.laydate;
+			var element = layui.element;
+			var layer = layui.layer;
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#start' //指定元素
+			});
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#end' //指定元素
+			});
+
+		});
+	</script>
+	<script>
+		layui.use('table',
+			function() {
+				var table = layui.table;
+
+				//监听单元格编辑
+				table.on('edit(test)',
+					function(obj) {
+						var value = obj.value //得到修改后的值
+							,
+							data = obj.data //得到所在行所有键值
+							,
+							field = obj.field; //得到字段
+						layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+					});
+
+				//头工具栏事件
+				table.on('toolbar(test)',
+					function(obj) {
+						var checkStatus = table.checkStatus(obj.config.id);
+						switch(obj.event) {
+							case 'getCheckData':
+								var data = checkStatus.data;
+								layer.alert(JSON.stringify(data));
+								break;
+							case 'getCheckLength':
+								var data = checkStatus.data;
+								layer.msg('选中了：' + data.length + ' 个');
+								break;
+							case 'isAll':
+								layer.msg(checkStatus.isAll ? '全选' : '未全选');
+								break;
+						};
+					});
+
+				//			form.render();
+			})
+	</script>
+
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+</html>

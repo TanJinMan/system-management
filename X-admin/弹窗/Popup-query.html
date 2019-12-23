@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>卡片信息查询</title>
+	</head>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />	
+	
+	<style>
+		*{margin: 0 ;padding: 0;}
+		
+		.content{
+			width: 1000px;
+			margin-top: 10px;
+			
+		}
+		
+		form{
+			width: 900px;
+			margin: 0 auto;
+			/*background: #019587;*/
+			display: flex;
+			justify-content: space-between;
+			flex-wrap:wrap;
+		}
+		
+		form div{
+			width: 900px;
+			margin-bottom: 10px;
+			padding-left: 20px
+		}
+		
+		form div select{
+			width: 204px;
+			height: 29px;
+		}
+		
+		form  label{
+			
+			width: 70px ; 	
+			font-size: 14px;
+			line-height: 29px;
+			color: #B2B2B2;
+		}
+		
+		form div input{
+			width: 200px;
+			height: 25px;
+			margin-right: 35px;
+			/*border-width: 1px;*/
+            /*border-style: solid ;*/
+		}
+		
+		#reg{
+			width: 300px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+		#reg button:nth-child(1){
+			width: 90px;
+			height: 30px;
+			font-size: 15px;
+			background: #0086B3;
+			border-color: #0086B3;
+		    margin-right: 15px;
+			color: white;
+			border: none;
+		}
+		
+		#reg button:nth-child(2){
+			width: 90px;
+			height: 30px;
+			font-size: 15px;
+		    background: white;
+		    border-color: white;
+		    color: black;
+		    border: none;
+		}
+	</style>
+	<body>
+		<div class="content">
+			<form >
+				
+				<div>
+				<label>资产编号</label>
+					<input type="text"></input>
+				
+				
+				<label>权属人</label>
+					<input type="text"></input>
+				
+				<label>区域分类</label>
+				<select>
+					 <option value="">请选择</option>
+                        <option value="1">城南区</option>
+                        <option value="2">总部区</option>
+                        <option value="3">城西区</option>
+                        <option value="4">会雅苑</option>
+                        <option value="5">其他</option>
+				</select>
+				</div>
+				
+				<div>
+				<label>管理类型</label>
+				<select style="margin-right: 21px;">
+					 <option value="">请选择</option>
+                        <option value="1">企业自有</option>
+                        <option value="2">大国资接收</option>
+                        <option value="3">公建配套</option>
+                        <option value="4">其他单位委托</option>
+				</select>
+				
+				<label>房产类型</label>
+				<select style="margin-right: 35px;">
+					<option value="">请选择</option>
+                        <option value="1">办公用房</option>
+                        <option value="2">住房</option>
+                        <option value="3">商铺</option>
+                        <option value="4">厂房</option>
+                        <option value="5">仓库</option>
+                        <option value="6">其他</option>
+				</select>
+				
+				<label>资产状态</label>
+				<select>
+					<option value="">请选择</option>
+                        <option value="1">出租</option>
+                        <option value="2">待租</option>
+                        <option value="3">自用</option>
+                        <option value="4">出借</option>
+                        <option value="5">闲置</option>
+                        <option value="6">其他</option>
+				</select>				
+				</div>
+				
+				
+				<div  style="width: 580px; ">
+					<label>资产编号</label>
+					<input type="text" style="margin-right: 63px;"></input>
+					
+					<label>至</label>
+					<input type="text" style="margin-right: 0;"></input>
+					
+				</div>
+				
+				<div  style="width: 580px;  padding-left: 6px;">
+					<label >可出租面积</label>
+					<input type="text" style="margin-right: 63px;"></input>
+					
+					<label>至</label>
+					<input type="text" style="margin-right: 0;"></input>
+					
+				</div>
+				
+				<div id="reg">
+				<button type="submit">查询</button><button type="reset">重置</button>
+				</div>
+					
+				
+				
+				
+				
+				</div>	
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注销卡片</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+		<link rel="stylesheet" href="../lib/layui/css/layui.css" />
+		<script src="../lib/layui/layui.js"></script>
+	</head>
+
+	<style>
+		.content {
+			width: 950px;
+			margin: 10px auto;
+			
+		}
+		
+		.content input {
+			width: 150px;
+			height: 38px;
+			padding-left: 10px;
+			line-height: 1.3;
+			border-width: 1px;
+			border-style: solid;
+			background-color: #fff;
+			border-radius: 2px;
+			border-color: #e6e6e6
+		}
+		
+		.box02 {
+			width: 900px;
+			height: 75px;
+			/*background: seashell;*/
+			position: relative;
+			/*text-align: center;*/
+		}
+		
+		.box02 textarea {
+			width: 600px;
+			height: 75px;
+			/*margin-left: 63px;*/
+		}
+	</style>
+
+	<body>
+		<div class="content">
+			<div class="layui-form">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">注销时间</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+						</div>
+
+						<label class="layui-form-label">经办人</label>
+						<input type="text" />
+					</div>
+				</div>
+
+				<div class="box02">
+					<label class="layui-form-label">作废原因&nbsp;</label>
+					<textarea></textarea>
+				</div>
+
+				<div class="layui-card-body layui-table-body layui-table-main">
+					<label class="layui-form-label" style="width: 113px;">注销资料：</label>
+					<table class="layui-table layui-form">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>附件名称</th>
+								<th>附件说明</th>
+								<th>上传人</th>
+								<th>上传时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="layui-inline" style="width: 800px; display: flex; margin-bottom: 15px;">
+                    	<label class="layui-form-label">区域分类</label>
+                        <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">请选择</option>
+                        <option value="1">审核人1</option>
+                        <option value="2">审核人2</option> 
+                        </select>
+                        </div>
+
+			</div>
+		</div>
+	</body>
+
+	<script>
+		layui.use(['laydate','form'], function() {
+			var laydate = layui.laydate;
+			var form = layui.form;
+
+			//时间日期
+			laydate.render({
+				elem: '#test1'
+			});
+		})
+	</script>
+
+</html>

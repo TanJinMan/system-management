@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>高新资产管理系统</title>
+	</head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="css/login1.css" />
+	<link rel="stylesheet" href="css/common.css" />
+	<script src="js/login.js"></script>
+	<script src="js/jquery.min.js"></script>
+
+	<body>
+		
+		<div class="header">
+			<h1>禅城区国资系统资产管理云平台</h1>
+		</div>
+		
+		
+		<div class="big_box">
+		<form id="myform" onsubmit="return false">
+			<h4>用户登录</h4>
+			<div>
+				<label for="user"><pre>用户名：</pre></label>
+				<input id="user" type="text" placeholder="账号或手机号码" />
+				
+			</div>
+			<div>
+				<label for=""><pre>密码：</pre></label><input id="paw" type="password" placeholder="密码" />
+				
+			</div>
+			<div>
+				<label for=""><pre>验证码：</pre></label><input id="Verification" type="text" placeholder="验证码" />
+				<canvas class="auth_code"></canvas>
+			</div>
+			<div class="reg"><button id="lg">登录</button></div>
+
+		</form>
+		</div>
+		
+		<div class="copyright">
+			<p>版权所有 © 2019 佛山高新技术产业投资发展公司  技术支持：广东奥博信息产业股份有限公司</p>
+		</div>
+	</body>
+
+</html>

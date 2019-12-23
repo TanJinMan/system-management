@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>后台</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="stylesheet" href="./css/font.css">
+		<link rel="stylesheet" href="./css/xadmin.css">
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1533955_1z4raiw210o.css" />
+
+		<!--主题版本-->
+		<!--<link rel="stylesheet" href="css/theme1.css" />-->
+		<!--<link rel="stylesheet" href="css/theme2.css" />-->
+		<!--<link rel="stylesheet" href="css/theme3.css" />-->
+		<!--<link rel="stylesheet" href="css/theme4.css" />-->
+		<!--<link rel="stylesheet" href="./css/theme5.css">-->
+
+		<script src="./lib/layui/layui.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./js/xadmin.js"></script>
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 9]>
+          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+		<script>
+			//             是否开启刷新记忆tab功能
+			var is_remember = false;
+		</script>
+
+		<style>
+			/*#navs li:nth-child(1) {
+				width: 85px !important;
+				text-align: center;
+				/*height: 60px;
+				margin-left: 20px;
+				line-height: 55px;
+				cursor: pointer;
+				float: left;
+				color: white;
+				font-size: 16px;
+			}*/
+		</style>
+
+	</head>
+
+	<body class="index">
+		
+		<!-- 中部开始 -->
+		<!-- 左侧菜单开始 -->
+
+		<div class="left-nav">
+			<div class="logo">
+				<a href="./index.html" style="color: white;"><i class="iconfont icon-diqiu" style="color: #0061b0;"></i>&nbsp;高新资产管理系统</a>
+			</div>
+			<div id="side-nav">
+
+				<ul id="nav" class="nav" style="display: block;">
+					<!--资产-->
+					<li>
+						<a href="javascript:;" class="active active01">
+							<i class="iconfont left-nav-li" lay-tips="资产台账管理">&#xe6b8;</i>
+							<cite>资产台账管理</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu" style="display: block;">
+							<li>
+								<a onclick="xadmin.add_tab('房产信息管理','Assets-account management.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 房产信息管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('土地信息管理','Assets-account management1.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 土地信息管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('区域分类设置','Assets-account management2.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 区域分类设置</cite></a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="javascript:;"  class="active01">
+							<i class="iconfont left-nav-li" lay-tips="资产数据管理">&#xe723;</i>
+							<cite>资产数据管理</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('数据操作留痕管理','Asset-data management.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 数据操作留痕管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('资产附件管理','Asset-data management1.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 资产附件管理</cite></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+
+				<!--合同-->
+
+				<ul id="nav" class="nav">
+
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="合同台帐管理">&#xe723;</i>
+							<cite>合同台帐管理</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('合同台帐管理','Contract-account management.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 合同台帐管理</cite></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="合同审批流程">&#xe723;</i>
+							<cite>合同审批流程</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('合同审批流程配置','Contract approval.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 合同审批流程配置</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('合同审批表单模板管理','Contract approval1.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 合同审批表单模板管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('合同审批流转监控','Contract approval2.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 合同审批流转监控</cite></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="合同基础信息">&#xe726;</i>
+							<cite>合同基础信息</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('客户信息管理','Contract-information.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 客户信息管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('合同模板管理','Contract-template.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 合同模板管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('合同参数管理','Contract-parameters.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 合同参数管理</cite></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!--收费-->
+				<ul id="nav" class="nav">
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="收费台帐管理">&#xe6ce;</i>
+							<cite>收费台帐管理</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('租金收费台帐','charge-charge.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 租金收费台帐</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('其他费用收费台帐','charge-Other charges.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 其他费用收费台帐</cite></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="费用管理">&#xe6b4;</i>
+							<cite>费用管理</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('费用登记管理','charge-register.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 费用登记管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('保证金管理','charge-bond.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 保证金管理</cite></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="发票管理">&#xe6b4;</i>
+							<cite>发票管理</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('发票信息管理','charge-Invoice information.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 发票信息管理</cite></a>
+							</li>
+							<li>
+								<a onclick="xadmin.add_tab('计税点配置','charge-tax point.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 计税点配置</cite></a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="收费业务流程">&#xe6b4;</i>
+							<cite>收费业务流程</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('收费审批流转监控','charge-Monitor.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 收费审批流转监控</cite></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!--智能-->
+
+				<ul id="nav" class="nav">
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="智能预警">&#xe6b4;</i>
+							<cite>智能预警</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('智能预警','lg-Intelligence.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 智能预警</cite></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="预警参数配置">&#xe6b4;</i>
+							<cite>预警参数配置</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('· 预警参数配置','lg-parameter.html')" target="">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 预警参数配置</cite></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!--分析-->
+
+				<ul id="nav" class="nav">
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="统计分析">&#xe6b4;</i>
+							<cite>统计分析</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('· 统计分析','Statistics-analysis.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 统计分析</cite></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<ul id="nav" class="nav">
+					<li>
+						<a href="javascript:;" class="active01">
+							<i class="iconfont left-nav-li" lay-tips="管理系统">&#xe6b4;</i>
+							<cite>· 管理系统</cite>
+							<i class="iconfont nav_right">&#xe697;</i></a>
+						<ul class="sub-menu">
+							<li>
+								<a onclick="xadmin.add_tab('· 管理系统','Statistics-analysis.html')">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>· 管理系统</cite></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<div class="x-slide_left"></div>
+		<!-- 左侧菜单结束 -->
+		
+		
+		
+		<!-- 顶部开始 -->
+		<div class="container">
+			<div class="left_open">
+				<a><i title="展开左侧栏" class="iconfont" style="float: left;">&#xe699;</i></a>
+
+			</div>
+
+			<div id="content">
+
+				<ul id="navs">
+					<!--<li onclick="xadmin.add_tab('首页','welcome.html')"><i class="iconfont icon-shouye1-copy"></i>首页</li>-->
+					<li class="actives"><i class="iconfont icon-zichanguanli-fill"></i>资产管理</li>
+					<li><i class="iconfont icon-hetongguanli"></i>合同管理</li>
+					<li><i class="iconfont icon-shoufeiguanli"></i>收费管理</li>
+					<li><i class="iconfont icon-zhinengyujing"></i>智能管理</li>
+					<li><i class="iconfont icon-tongji"></i>统计分析</li>
+					<li><i class="iconfont icon-xitong"></i>管理系统</li>
+				</ul>
+			</div>
+
+			<ul class="layui-nav right" lay-filter="">
+				<li class="layui-nav-item">
+					<a href="javascript:;">admin</a>
+					<dl class="layui-nav-child">
+						<!--二级菜单-->
+						<dd>
+							<a onclick="xadmin.open('个人信息','http://www.baidu.com')">个人信息</a>
+						</dd>
+						<dd>
+							<a onclick="xadmin.open('切换帐号','http://www.baidu.com')">切换帐号</a>
+						</dd>
+						<dd>
+							<a href="./login1.html">退出</a>
+						</dd>
+					</dl>
+				</li>
+				<li class="layui-nav-item to-index">
+					<a href="/"><i class="iconfont icon-icon"></i></a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 顶部结束 -->
+		
+		
+		
+		
+		
+		
+		<!-- 右侧主体开始 -->
+		<div class="page-content" style>
+			<div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+				<ul class="layui-tab-title">
+					<li class="home">
+						<i class="layui-icon">&#xe68e;</i>返回首页</li>
+				</ul>
+				<div class="layui-unselect layui-form-select layui-form-selected" id="tab_right" style="background: #009F95;">
+					<dl>
+						<dd data-type="this">关闭当前</dd>
+						<dd data-type="other">关闭其它</dd>
+						<dd data-type="all">关闭全部</dd>
+					</dl>
+				</div>
+				
+				<div class="layui-tab-content" style="margin: 0 auto ; ">
+					<div class="layui-tab-item layui-show">
+						<iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+					</div>
+				</div>
+				<div id="tab_show"></div>	
+			</div>
+		</div>
+		<div class="page-content-bg"></div>
+		<style id="theme_style"></style>
+		<!--右侧主体结束-->
+		<!-- 中部结束 -->
+
+		<!--<script>//百度统计可去掉
+            var _hmt = _hmt || []; (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();</script>-->
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$('#navs li').click(function() {
+					console.log('#navs li')
+					var index = $(this).index();
+					$(this).addClass('actives').siblings().removeClass("actives").removeClass('open');
+
+					$('#side-nav .nav').eq(index).show().siblings().hide()
+					$()
+				})
+			})
+		</script>
+	</body>
+
+</html>
+
+</html>

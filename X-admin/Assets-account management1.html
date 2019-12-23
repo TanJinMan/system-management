@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>欢迎页面土地信息管理</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="stylesheet" href="./css/font.css">
+		<link rel="stylesheet" href="./css/xadmin.css">
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_1533955_ar9aaiqvj68.css" />
+		<script src="./lib/layui/layui.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./js/xadmin.js"></script>
+	</head>
+
+	<style>
+		.laytable-cell-1-0-0 {
+			width: 35px !important;
+		}
+		
+		.iconfont {
+			font-family: "iconfont" !important;
+			font-size: 20px !important;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+		}
+	</style>
+
+	<body>
+
+		<script type="text/html" id="barDemo">
+			<button class="layui-btn" onclick="xadmin.open('卡片信息查询','./弹窗/Popup-query.html',1000,300)" title="查询卡片"><i class="iconfont icon-chaxun"></i></button>
+			<button class="layui-btn" onclick="xadmin.open('添加信息','./弹窗/Popup-added.html',1000,600)" title="查看卡片"><i class="iconfont icon-yanjing"></i></button>
+			<button class="layui-btn" onclick="xadmin.open('添加信息','./弹窗/Popup-added.html',1000,600)" title="编辑卡片"><i class="iconfont icon-icon_function_xiugai"></i></button>
+			<button class="layui-btn" onclick="xadmin.open('卡片作废','./弹窗/Popup-zuofei.html',1000,300)" title="删除卡片"><i class="iconfont icon-shanchu"></i></button>
+			<button class="layui-btn" onclick="xadmin.open('注销卡片','./弹窗/Popup-cancellation.html',1000,500)" title="注销卡片"><i class="iconfont icon-zhuxiaologout11"></i></button>
+		</script>
+
+		<div class="x-nav">
+			<span class="layui-breadcrumb">
+            <a href="">资产台账管理</a>
+            <a href="">
+              <cite>土地信息管理</cite></a>
+          </span>
+			<a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+				<i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+		</div>
+
+		<div class="layui-fluid">
+			<div class="layui-row layui-col-space15">
+				<div class="layui-col-md12">
+					<div class="layui-card">
+						<div class="layui-card-body ">
+							<form class="layui-form layui-col-space5">
+								<div class="layui-inline layui-show-xs-block">
+									<input class="layui-input" autocomplete="off" placeholder="开始日" name="start" id="start"></div>
+								<div class="layui-inline layui-show-xs-block">
+									<input class="layui-input" autocomplete="off" placeholder="截止日" name="end" id="end"></div>
+								<div class="layui-inline layui-show-xs-block">
+									<input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input"></div>
+								<div class="layui-inline layui-show-xs-block">
+									<button class="layui-btn" lay-submit="" lay-filter="sreach">
+                                        <i class="layui-icon">&#xe615;</i></button>
+								</div>
+							</form>
+
+						</div>
+						<div class="layui-card-body ">
+							<table class="layui-table" lay-data="{url:'./user.json',page:true,toolbar: '#toolbarDemo',id:'test'}" lay-filter="test">
+								<thead>
+									<tr>
+										<th lay-data="{type:'checkbox'}">ID</th>
+										<th lay-data="{field:'id', width:60, sort: true}">ID</th>
+										<th lay-data="{field:'资产编号', width:105,edit: 'text'}">资产编号</th>
+										<th lay-data="{field:'房产类型',width:313,edit: 'text'}">土地地址</th>
+										<th lay-data="{field:'区域类型', width:110}">区域类型</th>
+										<th lay-data="{field:'房产类型', edit: 'text', width: 110}">土地类型</th>
+										<th lay-data="{field:'建筑面积(m²)',edit: 'text',width:110}">土地面积(m²)</th>
+										<th lay-data="{field:'可出租面积(m²)',width:110 , templet: function(d){ return d.dw_xinzhi.titel;}}">地上建筑物面积(m²)</th>
+										<th lay-data="{field:'占地面积(m²)', width: 110}">管理类型</th>
+										<th lay-data="{field:'资产状态',edit: 'text', width: 110}">资产状态</th>
+										<th lay-data="{field:'操作',Width: 100, toolbar:'#barDemo'}">操作</th>
+									</tr>
+
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<p class="site-demo-text" style="margin: 0 auto;">版权所有 © 2019 佛山高新技术产业投资发展公司 技术支持：广东奥博信息产业股份有限公司</p>
+
+	<script type="text/html" id="toolbarDemo">
+		<button class="layui-btn" onclick="xadmin.open('添加信息','./弹窗/Popup-added.html',1000,600)">添加卡片</button>
+	</script>
+
+	<script type="text/html" id="switchTpl">
+		<!-- 这里的checked的状态只是演示 -->
+		<input type="checkbox" name="sex" value="{{d.id}}" lay-skin="switch" lay-text="女|男" lay-filter="sexDemo" {{ d.id==1 0003 ? 'checked': ''}}>
+	</script>
+
+	<script>
+		layui.use('laydate', function() {
+			var laydate = layui.laydate;
+			//				var $ = layui.jquery, layer = layui.layer;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#start' //指定元素
+			});
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#end' //指定元素
+			});
+
+		});
+	</script>
+	<script>
+		layui.use('table',
+			function() {
+				var table = layui.table;
+
+				//监听单元格编辑
+				table.on('edit(test)',
+					function(obj) {
+						var value = obj.value //得到修改后的值
+							,
+							data = obj.data //得到所在行所有键值
+							,
+							field = obj.field; //得到字段
+						layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+					});
+
+				//头工具栏事件
+				table.on('toolbar(test)',
+					function(obj) {
+						var checkStatus = table.checkStatus(obj.config.id);
+						switch(obj.event) {
+							case 'getCheckData':
+								var data = checkStatus.data;
+								layer.alert(JSON.stringify(data));
+								break;
+							case 'getCheckLength':
+								var data = checkStatus.data;
+								layer.msg('选中了：' + data.length + ' 个');
+								break;
+							case 'isAll':
+								layer.msg(checkStatus.isAll ? '全选' : '未全选');
+								break;
+						};
+					});
+			});
+	</script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+</html>

@@ -1,0 +1,26 @@
+.laytable-cell-1-0-0{
+	width: 50px !important;
+	/*background: saddlebrown;*/
+}
+
+.layui-unselect:nth-child(1){
+	width: 50px !important;
+	/*background: saddlebrown;*/
+}
+
+.layui-table td, .layui-table th {
+    min-width: 55px !important;
+}
+
+
+.layui-table td, .layui-table th {
+    position: relative;
+    padding: 9px 30px !important;
+    min-height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.laytable-cell-1-0-2 {
+    width: 83px !important;
+}

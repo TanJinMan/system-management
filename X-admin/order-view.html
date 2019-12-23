@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/font.css">
+		<link rel="stylesheet" href="./css/xadmin.css">
+		<link rel="stylesheet" href="css/laytable-cell.css" />
+		<link rel="stylesheet" href="css/lattable-cell1.css"/>
+		<script src="./lib/layui/layui.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./js/xadmin.js"></script>
+	</head>
+
+	<style>
+		.msg {
+			width: 98%;
+			height: 40px;
+			background: #f1f9fd;
+			line-height: 40px;
+			margin: 0 auto;
+			border-left: 5px solid #009E94;
+		}
+		
+		#myform {
+			width: 1060px;
+			height: 275px;
+			/*background: skyblue;*/
+			margin-left: 100px;
+		}
+		
+		#myform div {
+			height: 35px;
+			/*background: darkgreen;*/
+			line-height: 63px;
+			margin-top: 20px;
+		}
+		
+		#myform div * {
+			float: left;
+		}
+		
+		#myform div label {
+			width: 90px;
+			text-align: center;
+		}
+		
+		#myform div label pre {
+			width: 95%;
+			line-height: 30px;
+			text-align: right;
+			/*font-size: 20px;*/
+		}
+		
+		#myform div input {
+			width: 170px;
+			height: 30px;
+			outline: none;
+			border: 1px solid black;
+		}
+		
+		#myform div span {
+			font-size: 20px;
+			margin-left: 20px;
+			color: red;
+			display: none;
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			text-align: center;
+		}
+		
+		.reg {
+			text-align: center;
+		}
+		
+		.reg button {
+			width: 163px;
+			height: 54px;
+			background: #3499db;
+			color: white;
+			border: none;
+			font-size: 16px;
+			margin-left: 282px;
+		}
+		
+		#fjsm {
+			width: 457px !important;
+			height: 70px !important;
+		}
+		
+		.layui-table-page {
+			display: none;
+		}
+		
+	
+		
+		
+	</style>
+
+	<body>
+		<div id="content" style="width: 100%;">
+			<div class="msg">&nbsp;附件信息</div>
+
+			<form id="myform" onsubmit="return false">
+
+				<div style=" width: 285px; ">
+					<label for="user"> 
+									  <pre>附件名称</pre></label>
+					<input id="user" type="text" />
+
+					<div style=" width: 700px; ">
+						<label for=""><pre>附件类型</pre></label><input id="phone" type="text" />
+
+
+						<label for="" style="margin-left: 25px;"><pre>关联业务编号</pre></label><input id="email" type="text" />
+
+					</div>
+
+					<div style=" width: 600px;">
+						<label for=""><pre>最后更新时间</pre></label><input id="password" type="text" />
+
+
+						<label for="" style="margin-left: 25px;"><pre>最后更新时间</pre></label><input id="school" type="text" />
+	
+					</div>
+					<div style="width: 600px;">
+						<label for=""><pre>附件说明</pre></label><input id="fjsm" type="text" />
+					
+					</div>
+			</form>
+			</div>
+
+			<div class="msg">&nbsp;历史操作记录</div>
+			<div class="layui-fluid">
+				<div class="layui-row layui-col-space15">
+					<div class="layui-col-md12">
+						<div class="layui-card">
+							<!--<div class="layui-card-body ">
+                        </div>-->
+							<div class="layui-card-body ">
+								<table class="layui-table" lay-data="{url:'.//user.json',page:true,toolbar: '#toolbarDemo',id:'test'}" lay-filter="test">
+									<thead>
+										<tr>
+											<!--<th lay-data="{type:'checkbox'}">ID</th>-->
+											<th  lay-data="{field:'序号', width:50, sort: true}">序号</th>
+											<th lay-data="{field:'文件名称', width:100, sort: true, edit: 'text'}">文件名称</th>
+											<th lay-data="{field:'文件大小', edit: 'text', minWidth: 200}">文件大小</th>
+											<th lay-data="{field:'上传人', width:80}">上传人</th>
+											<th lay-data="{field:'上传时间', edit: 'text', minWidth: 50}">上传时间</th>
+											<th lay-data="{field:'作废人',edit: 'text'}">作废人</th>
+											<th lay-data="{field:'作废时间',templet: function(d){ return d.dw_xinzhi.titel;}}">作废时间</th>
+											<!--<th lay-data="{field:'操作',Width: 100,}">操作</th>-->
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
+	<!--<script type="text/html" id="toolbarDemo">-->
+	<!--<div class = "layui-btn-container" >-->
+	<!--<button class = "layui-btn layui-btn-sm" lay-event = "getCheckData" > 获取选中行数据 </button>
+            <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button > 
+            <button class = "layui-btn layui-btn-sm" lay-event = "isAll" > 验证是否全选</button>-->
+
+	</div>
+	<!--</script>-->
+	<!--<script type="text/html" id="switchTpl">-->
+	<!-- 这里的checked的状态只是演示 -->
+	<!--<input type = "checkbox" name = "sex" value = "{{d.id}}" lay-skin = "switch"lay-text = "女|男" lay-filter = "sexDemo" {{ d.id == 10003 ? 'checked': ''}} >-->
+	<!--</script>-->
+	<script>
+		layui.use('laydate',
+			function() {
+				var laydate = layui.laydate;
+
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#start' //指定元素
+				});
+
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#end' //指定元素
+				});
+
+			});
+	</script>
+	<script>
+		layui.use('table',
+			function() {
+				var table = layui.table;
+
+				//监听单元格编辑
+				table.on('edit(test)',
+					function(obj) {
+						var value = obj.value //得到修改后的值
+							,
+							data = obj.data //得到所在行所有键值
+							,
+							field = obj.field; //得到字段
+						layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+					});
+
+				//头工具栏事件
+				table.on('toolbar(test)',
+					function(obj) {
+						var checkStatus = table.checkStatus(obj.config.id);
+						switch(obj.event) {
+							case 'getCheckData':
+								var data = checkStatus.data;
+								layer.alert(JSON.stringify(data));
+								break;
+							case 'getCheckLength':
+								var data = checkStatus.data;
+								layer.msg('选中了：' + data.length + ' 个');
+								break;
+							case 'isAll':
+								layer.msg(checkStatus.isAll ? '全选' : '未全选');
+								break;
+						};
+					});
+			});
+	</script>
+	<!--<script>
+    	var _hmt = _hmt || []; (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>-->
+
+	</body>
+
+</html>
